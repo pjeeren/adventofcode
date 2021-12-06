@@ -60,14 +60,7 @@ def calculate_dangerous_spots(lines)
         end
     end
 
-    sum = 0
-
-    grid.each do |row|
-        row.each do |point|
-            sum += 1 if point >= 2
-        end
-    end
-    sum
+    grid.sum { |row| row.count {|point| point >= 2} }
 end
 
 content = File.read("content5.txt").split("\n")
