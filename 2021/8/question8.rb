@@ -19,9 +19,7 @@ def find_decoded_value(combination, output)
     "#{combination.index(output[0])}#{combination.index(output[1])}#{combination.index(output[2])}#{combination.index(output[3])}".to_i
 end
 
-content = File.read("content8.txt").split("\n")
-
-lines = content.map do |line|
+lines = File.read("content8.txt").split("\n").map do |line|
     [
         line.split(" | ")[0].split(" ").map { |number| number.chars.sort.join },
         line.split(" | ")[1].split(" ").map { |number| number.chars.sort.join }
