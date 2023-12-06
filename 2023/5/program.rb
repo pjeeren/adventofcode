@@ -23,7 +23,7 @@ def question1(rows)
 end
 
 def question2(rows)
-    location_placeholder = 40000000
+    location_placeholder = 0
     seeds = rows.shift.split(": ")[1].split(" ").map{|e| e.to_i}
 
     maps = rows.map do |block|
@@ -55,43 +55,7 @@ def question2(rows)
     end
 end
 
-# def question2(rows)
-#     seeds = rows.shift.split(": ")[1].split(" ").map{|e| e.to_i}
-
-#     all_seeds = []
-
-#     seeds.each_slice(2).each do |seed|
-#         seed[0].to_i.upto(seed[0] + seed[1]) do |s|
-#             all_seeds.push(s)
-#         end
-#         puts "one done"
-#     end
-
-#     maps = rows.map do |block|
-#         block.split("\n").each.map {|row| row.split(" ").map{|e| e.to_i}}[1..]
-#     end
-
-#     locations = []
-
-#     all_seeds.each do |s|
-#         seed = s.to_i
-#         maps.each do |map|
-#             map.each do |row|
-#                 if seed < row[1]
-#                     next
-#                 end
-#                 if seed >= row[1] && seed <= row[1] + row[2]
-#                     seed = seed - row[1] + row[0]
-#                     break
-#                 end
-#             end
-#         end
-#         locations.push seed
-#     end
-#     locations.min
-# end
-
-# puts "Question 1: #{question1(input.clone)}"
+puts "Question 1: #{question1(input.clone)}"
 time = Time.now
 puts "Question 2: #{question2(input.clone)}"
 
